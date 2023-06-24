@@ -1,7 +1,7 @@
 package com.logistic.transportlogistic.mapper;
 
-import com.logistic.transportlogistic.api.model.CreateTransport;
-import com.logistic.transportlogistic.api.model.ReadTransport;
+import com.logistic.transportlogistic.model.CreateTransport;
+import com.logistic.transportlogistic.model.ReadTransport;
 import com.logistic.transportlogistic.domain.Transport;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

@@ -1,13 +1,13 @@
-package logistic.transportlogistic.testobject;
+package unit.transportlogistic.testobject;
 
-import com.logistic.transportlogistic.api.model.CreateTransport;
-import com.logistic.transportlogistic.api.model.ReadCar;
-import com.logistic.transportlogistic.api.model.CreateCar;
-import com.logistic.transportlogistic.api.model.CreateComponent;
-import com.logistic.transportlogistic.api.model.CreateDetail;
-import com.logistic.transportlogistic.api.model.ReadComponent;
-import com.logistic.transportlogistic.api.model.ReadDetail;
-import com.logistic.transportlogistic.api.model.ReadTransport;
+import com.logistic.transportlogistic.model.CreateTransport;
+import com.logistic.transportlogistic.model.ReadCar;
+import com.logistic.transportlogistic.model.CreateCar;
+import com.logistic.transportlogistic.model.CreateComponent;
+import com.logistic.transportlogistic.model.CreateDetail;
+import com.logistic.transportlogistic.model.ReadComponent;
+import com.logistic.transportlogistic.model.ReadDetail;
+import com.logistic.transportlogistic.model.ReadTransport;
 import com.logistic.transportlogistic.domain.Car;
 import com.logistic.transportlogistic.domain.Component;
 import com.logistic.transportlogistic.domain.Detail;

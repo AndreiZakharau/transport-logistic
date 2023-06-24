@@ -1,4 +1,4 @@
-package com.logistic.transportlogistic.api.model;
+package com.logistic.transportlogistic.model;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -25,6 +25,7 @@ public class CreateCar {
   private String model;
 
   @NotNull(message = "Value 'createDate' cannot be null")
-  @DateTimeFormat(pattern = "dd-MM-yyyy") //ToDo
+  @DateTimeFormat(pattern = "yyyy-MM-dd") //ToDo
   private String createDate;
+  //todo add transport id?
 }

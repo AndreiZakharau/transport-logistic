@@ -1,14 +1,14 @@
-package logistic.transportlogistic.mapper;
+package unit.transportlogistic.mapper;
 
 import static com.logistic.transportlogistic.mapper.CarMapper.CAR_MAPPER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import com.logistic.transportlogistic.api.model.CreateCar;
-import com.logistic.transportlogistic.api.model.ReadCar;
+import com.logistic.transportlogistic.model.CreateCar;
+import com.logistic.transportlogistic.model.ReadCar;
 import com.logistic.transportlogistic.domain.Car;
 import java.time.LocalDate;
-import logistic.transportlogistic.testobject.TestModel;
+import unit.transportlogistic.testobject.TestModel;
 import org.junit.jupiter.api.Test;
 
 class CarMapperTest {

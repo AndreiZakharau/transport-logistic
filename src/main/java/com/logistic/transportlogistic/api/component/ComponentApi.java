@@ -1,7 +1,7 @@
 package com.logistic.transportlogistic.api.component;
 
-import com.logistic.transportlogistic.api.model.CreateComponent;
-import com.logistic.transportlogistic.api.model.ReadComponent;
+import com.logistic.transportlogistic.model.CreateComponent;
+import com.logistic.transportlogistic.model.ReadComponent;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -21,7 +21,7 @@ public interface ComponentApi {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  CreateComponent addCar(@Valid @RequestBody CreateComponent component);
+  ReadComponent addCar(@Valid @RequestBody CreateComponent component);
 
   @DeleteMapping("{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)

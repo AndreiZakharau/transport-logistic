@@ -1,7 +1,7 @@
 package com.logistic.transportlogistic.api.transport;
 
-import com.logistic.transportlogistic.api.model.CreateTransport;
-import com.logistic.transportlogistic.api.model.ReadTransport;
+import com.logistic.transportlogistic.model.CreateTransport;
+import com.logistic.transportlogistic.model.ReadTransport;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;

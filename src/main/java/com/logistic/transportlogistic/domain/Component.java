@@ -1,5 +1,6 @@
 package com.logistic.transportlogistic.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -32,6 +33,7 @@ public class Component {
 
   @NotNull
   @Size(min = 1, max = 50)
+  @Column(unique = true)
   private String type;
 
   @Builder.Default

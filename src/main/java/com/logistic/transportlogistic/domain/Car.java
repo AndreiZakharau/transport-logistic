@@ -38,7 +38,7 @@ public class Car {
 
   private LocalDate createDate;
 
-  @OneToOne(mappedBy = "car")
-  private Transport transportId;
+//  @OneToOne(mappedBy = "car")
+//  private Transport transportId;
 
 }

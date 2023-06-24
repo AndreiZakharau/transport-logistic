@@ -1,4 +1,4 @@
-package com.logistic.transportlogistic.api.model;
+package com.logistic.transportlogistic.model;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

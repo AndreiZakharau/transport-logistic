@@ -1,8 +1,9 @@
 package com.logistic.transportlogistic.api.car;
 
-import com.logistic.transportlogistic.api.model.ReadCar;
+import com.logistic.transportlogistic.model.CreateCar;
+import com.logistic.transportlogistic.model.ReadCar;
 import jakarta.validation.Valid;
-import java.util.List;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RequestMapping("/car")
@@ -20,24 +22,23 @@ public interface CarApi {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  ReadCar addCar(@Valid @RequestBody ReadCar car);
+  ReadCar addCar(@Valid @RequestBody CreateCar car);
 
-  @DeleteMapping("{id}")
+  @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   String deleteCar(@PathVariable long id);
 
-  @PutMapping("{id}")
+  @PutMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
-  ReadCar updateCar(@RequestBody ReadCar car,@PathVariable long id);
+  ReadCar updateCar(@Valid @RequestBody CreateCar car, @PathVariable long id);
 
-  @GetMapping("{id}")
+  @GetMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
-  ReadCar getCarById (@PathVariable long id);
+  ReadCar getCarById(@PathVariable long id);
 
   @GetMapping()
   @ResponseStatus(HttpStatus.OK)
-  List<ReadCar> findAllCar ();
-
-
-
+  Page<ReadCar> findAllCar(
+      @RequestParam(value = "page", defaultValue = "0", required = false) Integer page,
+      @RequestParam(value = "size", defaultValue = "10", required = false) Integer size);
 }

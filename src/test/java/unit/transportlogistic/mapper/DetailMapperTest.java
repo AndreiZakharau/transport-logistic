@@ -1,14 +1,14 @@
-package logistic.transportlogistic.mapper;
+package unit.transportlogistic.mapper;
 
 import static com.logistic.transportlogistic.mapper.DetailMapper.DETAIL_MAPPER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import com.logistic.transportlogistic.api.model.CreateDetail;
-import com.logistic.transportlogistic.api.model.ReadDetail;
+import com.logistic.transportlogistic.model.CreateDetail;
+import com.logistic.transportlogistic.model.ReadDetail;
 import com.logistic.transportlogistic.domain.Detail;
-import logistic.transportlogistic.testobject.TestModel;
+import unit.transportlogistic.testobject.TestModel;
 import org.junit.jupiter.api.Test;
 
 class DetailMapperTest {

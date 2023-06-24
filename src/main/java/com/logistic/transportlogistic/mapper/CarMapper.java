@@ -1,10 +1,9 @@
 package com.logistic.transportlogistic.mapper;
 
-import com.logistic.transportlogistic.api.model.ReadCar;
-import com.logistic.transportlogistic.api.model.CreateCar;
+import com.logistic.transportlogistic.model.ReadCar;
+import com.logistic.transportlogistic.model.CreateCar;
 import com.logistic.transportlogistic.domain.Car;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
