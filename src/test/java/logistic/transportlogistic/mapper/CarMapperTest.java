@@ -28,6 +28,14 @@ class CarMapperTest {
 
   @Test
   void readCarFromCar() {
+
+    Car car = TestModel.getCar();
+    ReadCar readCar = CAR_MAPPER.readCarFromCar(car);
+
+    assertNotNull(car);
+    assertEquals(car.getModel(), readCar.getModel());
+    assertEquals(car.getFabricator(), readCar.getFabricator());
+    assertEquals(car.getCreateDate(), LocalDate.parse(readCar.getCreateDate()));
   }
 
   @Test
@@ -45,5 +53,12 @@ class CarMapperTest {
   @Test
   void createCarFromCar() {
 
+    CreateCar createCar = TestModel.getCreateCar();
+    Car car = CAR_MAPPER.carFromCreateCar(createCar);
+
+    assertNotNull(car);
+    assertEquals(car.getModel(), createCar.getModel());
+    assertEquals(car.getFabricator(), createCar.getFabricator());
+    assertEquals(car.getCreateDate(), LocalDate.parse(createCar.getCreateDate()));
   }
 }
