@@ -4,6 +4,7 @@ import com.logistic.transportlogistic.model.CreateDetail;
 import com.logistic.transportlogistic.model.ReadDetail;
 import jakarta.validation.Valid;
 import java.util.List;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RequestMapping("/detail")
@@ -21,7 +23,7 @@ public interface DetailApi {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  CreateDetail addDetail(@Valid @RequestBody CreateDetail detail);
+  ReadDetail addDetail(@Valid @RequestBody CreateDetail detail);
 
   @DeleteMapping("{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -29,15 +31,17 @@ public interface DetailApi {
 
   @PutMapping("{id}")
   @ResponseStatus(HttpStatus.OK)
-  CreateDetail updateDetail(@RequestBody CreateDetail detail,@PathVariable long id);
+  ReadDetail updateDetail(@RequestBody CreateDetail detail, @PathVariable long id);
 
   @GetMapping("{id}")
   @ResponseStatus(HttpStatus.OK)
-  ReadDetail getDetailById (@PathVariable long id);
+  ReadDetail getDetailById(@PathVariable long id);
 
   @GetMapping()
   @ResponseStatus(HttpStatus.OK)
-  List<ReadDetail> findAllDetail ();
+  Page<ReadDetail> findAllDetail(
+      @RequestParam(value = "page", defaultValue = "0", required = false) Integer page,
+      @RequestParam(value = "size", defaultValue = "10", required = false) Integer size);
 
 
 }
