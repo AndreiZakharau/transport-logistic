@@ -27,7 +27,7 @@ public interface DetailApi {
 
   @DeleteMapping("{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  String deleteDetail(@PathVariable long id);
+  void deleteDetail(@PathVariable long id);
 
   @PutMapping("{id}")
   @ResponseStatus(HttpStatus.OK)
@@ -43,5 +43,11 @@ public interface DetailApi {
       @RequestParam(value = "page", defaultValue = "0", required = false) Integer page,
       @RequestParam(value = "size", defaultValue = "10", required = false) Integer size);
 
-
+  @GetMapping("/sort")
+  @ResponseStatus(HttpStatus.OK)
+  Page<ReadDetail> sortTransport(
+      @RequestParam(value = "sort", defaultValue = "id", required = false) List<String> sortColumns,
+      @RequestParam(value = "order", defaultValue = "asc", required = false) List<String> orderTypes,
+      @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+      @RequestParam(value = "size", defaultValue = "10", required = false) int size);
 }

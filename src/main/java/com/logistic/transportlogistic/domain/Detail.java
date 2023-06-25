@@ -1,5 +1,6 @@
 package com.logistic.transportlogistic.domain;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -37,7 +38,7 @@ public class Detail {
   @JoinColumn(name = "component_id")
   private Component typeDetail;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
   @JoinColumn(name = "transport_id")
   private Transport transportId;
 }

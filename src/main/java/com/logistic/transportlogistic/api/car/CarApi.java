@@ -2,7 +2,9 @@ package com.logistic.transportlogistic.api.car;
 
 import com.logistic.transportlogistic.model.CreateCar;
 import com.logistic.transportlogistic.model.ReadCar;
+import com.logistic.transportlogistic.model.ReadTransport;
 import jakarta.validation.Valid;
+import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -26,7 +28,7 @@ public interface CarApi {
 
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  String deleteCar(@PathVariable long id);
+  void deleteCar(@PathVariable long id);
 
   @PutMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
@@ -41,4 +43,12 @@ public interface CarApi {
   Page<ReadCar> findAllCar(
       @RequestParam(value = "page", defaultValue = "0", required = false) Integer page,
       @RequestParam(value = "size", defaultValue = "10", required = false) Integer size);
+
+  @GetMapping("/sort")
+  @ResponseStatus(HttpStatus.OK)
+  Page<ReadCar> sortTransport(
+      @RequestParam(value = "sort", defaultValue = "id", required = false) List<String> sortColumns,
+      @RequestParam(value = "order", defaultValue = "asc", required = false) List<String> orderTypes,
+      @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+      @RequestParam(value = "size", defaultValue = "10", required = false) int size);
 }

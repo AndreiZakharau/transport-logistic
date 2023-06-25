@@ -3,6 +3,7 @@ package com.logistic.transportlogistic.api.transport;
 import com.logistic.transportlogistic.model.CreateTransport;
 import com.logistic.transportlogistic.model.ReadTransport;
 import com.logistic.transportlogistic.service.TransportService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,32 +16,38 @@ public class TransportController implements TransportApi{
 
 
   @Override
-  public ReadTransport addCar(CreateTransport transport) {
-
+  public ReadTransport addTransport(CreateTransport transport) {
     return service.add(transport);
   }
 
   @Override
-  public String deleteCar(long id) {
-
-    return service.delete(id);
+  public void deleteTransport(long id) {
+    service.delete(id);
   }
 
   @Override
-  public ReadTransport updateCar(CreateTransport transport, long id) {
-
+  public ReadTransport updateTransport(CreateTransport transport, long id) {
     return service.update(transport, id);
   }
 
   @Override
-  public ReadTransport getCarById(long id) {
-
+  public ReadTransport getTransportById(long id) {
     return service.get(id);
   }
 
   @Override
-  public Page<ReadTransport> findAllCar(Integer page, Integer size) {
-
+  public Page<ReadTransport> findAllTransport(Integer page, Integer size) {
     return service.getAll(page,size);
+  }
+
+  @Override
+  public ReadTransport setDriver(long transportId, long driverId) {
+    return service.setDriverToTransport(transportId, driverId);
+  }
+
+  @Override
+  public Page<ReadTransport> sortTransport(List<String> sortColumns, List<String> orderTypes,
+      int page, int size) {
+    return service.getAllBySort(sortColumns,orderTypes,page,size);
   }
 }

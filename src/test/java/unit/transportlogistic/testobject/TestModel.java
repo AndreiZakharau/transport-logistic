@@ -25,7 +25,6 @@ public class TestModel {
         .fabricator("Volvo")
         .model("500")
         .createDate(LocalDate.parse("2021-12-03"))
-        .transportId(Transport.builder().build())
         .build();
   }
 

@@ -25,7 +25,6 @@ public class CreateCar {
   private String model;
 
   @NotNull(message = "Value 'createDate' cannot be null")
-  @DateTimeFormat(pattern = "yyyy-MM-dd") //ToDo
   private String createDate;
-  //todo add transport id?
+
 }

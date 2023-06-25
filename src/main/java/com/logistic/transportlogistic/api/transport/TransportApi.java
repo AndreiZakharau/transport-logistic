@@ -23,25 +23,36 @@ public interface TransportApi {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  ReadTransport addCar(@Valid @RequestBody CreateTransport transport);
+  ReadTransport addTransport(@Valid @RequestBody CreateTransport transport);
 
   @DeleteMapping("{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  String deleteCar(@PathVariable long id);
+  void deleteTransport(@PathVariable long id);
 
   @PutMapping("{id}")
   @ResponseStatus(HttpStatus.OK)
-  ReadTransport updateCar(@RequestBody CreateTransport transport, @PathVariable long id);
+  ReadTransport updateTransport(@RequestBody CreateTransport transport, @PathVariable long id);
 
   @GetMapping("{id}")
   @ResponseStatus(HttpStatus.OK)
-  ReadTransport getCarById(@PathVariable long id);
+  ReadTransport getTransportById(@PathVariable long id);
 
   @GetMapping()
   @ResponseStatus(HttpStatus.OK)
-  Page<ReadTransport> findAllCar(
+  Page<ReadTransport> findAllTransport(
       @RequestParam(value = "page", defaultValue = "0", required = false) Integer page,
       @RequestParam(value = "size", defaultValue = "10", required = false) Integer size);
 
+  @PutMapping("/{transportId}/driver/{driverId}")
+  @ResponseStatus(HttpStatus.OK)
+  ReadTransport setDriver(@PathVariable long transportId, @PathVariable long driverId);
+
+  @GetMapping("/sort")
+  @ResponseStatus(HttpStatus.OK)
+  Page<ReadTransport> sortTransport(
+      @RequestParam(value = "sort", defaultValue = "id", required = false) List<String> sortColumns,
+      @RequestParam(value = "order", defaultValue = "asc", required = false) List<String> orderTypes,
+      @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+      @RequestParam(value = "size", defaultValue = "10", required = false) int size);
 
 }

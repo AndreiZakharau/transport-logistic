@@ -14,6 +14,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 @NoArgsConstructor
@@ -36,9 +37,7 @@ public class Car {
   @Size(min = 1, max = 50)
   private String model;
 
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private LocalDate createDate;
-
-//  @OneToOne(mappedBy = "car")
-//  private Transport transportId;
 
 }

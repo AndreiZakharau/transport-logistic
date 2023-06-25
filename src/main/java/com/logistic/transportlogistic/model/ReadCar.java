@@ -28,7 +28,6 @@ public class ReadCar {
   private String model;
 
   @NotNull(message = "Value 'createDate' cannot be null")
-  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private String createDate;
 
 }
