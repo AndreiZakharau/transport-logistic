@@ -1,7 +1,7 @@
 package com.logistic.transportlogistic.service.impl;
 
 import com.logistic.transportlogistic.domain.Car;
-import com.logistic.transportlogistic.exception.DataException;
+import com.logistic.transportlogistic.exception.ResourceNotFoundException;
 import com.logistic.transportlogistic.mapper.CarMapper;
 import com.logistic.transportlogistic.model.CreateCar;
 import com.logistic.transportlogistic.model.ReadCar;
@@ -41,7 +41,7 @@ public class CarServiceImpl implements CarService {
       repository.deleteById(id);
       return message;
     } else {
-      throw new DataException(String.format("Car with id = '%s' could be found", id));
+      throw new ResourceNotFoundException(String.format("Car with id = '%s' could be found", id));
     }
 
   }
@@ -56,7 +56,7 @@ public class CarServiceImpl implements CarService {
       car = repository.save(car);
       return carMapper.readCarFromCar(car);
     } else {
-      throw new DataException(String.format("Id = '%s' could be found", id));
+      throw new ResourceNotFoundException(String.format("Id = '%s' could be found", id));
     }
   }
 

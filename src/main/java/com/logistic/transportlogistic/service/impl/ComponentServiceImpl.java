@@ -1,7 +1,7 @@
 package com.logistic.transportlogistic.service.impl;
 
 import com.logistic.transportlogistic.domain.Component;
-import com.logistic.transportlogistic.exception.DataException;
+import com.logistic.transportlogistic.exception.ResourceNotFoundException;
 import com.logistic.transportlogistic.mapper.ComponentMapper;
 import com.logistic.transportlogistic.model.CreateComponent;
 import com.logistic.transportlogistic.model.ReadComponent;
@@ -41,7 +41,7 @@ public class ComponentServiceImpl implements ComponentService {
       repository.deleteById(id);
       return  message;
     } else {
-      throw new DataException(String.format("Component with id = '%s' could be found", id));
+      throw new ResourceNotFoundException(String.format("Component with id = '%s' could be found", id));
     }
   }
 
@@ -54,7 +54,7 @@ public class ComponentServiceImpl implements ComponentService {
       component.setId(id);
       return  mapper.readComponentFromComponent(repository.save(component));
     } else {
-      throw new DataException(String.format("Component with id = '%s' could be found", id));
+      throw new ResourceNotFoundException(String.format("Component with id = '%s' could be found", id));
     }
   }
 

@@ -1,7 +1,7 @@
 package com.logistic.transportlogistic.service.impl;
 
 import com.logistic.transportlogistic.domain.Transport;
-import com.logistic.transportlogistic.exception.DataException;
+import com.logistic.transportlogistic.exception.ResourceNotFoundException;
 import com.logistic.transportlogistic.mapper.TransportMapper;
 import com.logistic.transportlogistic.model.CreateTransport;
 import com.logistic.transportlogistic.model.ReadTransport;
@@ -40,7 +40,7 @@ public class TransportServiceImpl implements TransportService {
       repository.deleteById(id);
       return message;
     } else {
-      throw new DataException(String.format("Transport with id = '%s' could be found", id));
+      throw new ResourceNotFoundException(String.format("Transport with id = '%s' could be found", id));
     }
   }
 
@@ -53,7 +53,7 @@ public class TransportServiceImpl implements TransportService {
       transport.setId(id);
       return mapper.readTransportFromTransport(repository.save(transport));
     } else {
-      throw new DataException(String.format("Transport with id = '%s' could be found", id));
+      throw new ResourceNotFoundException(String.format("Transport with id = '%s' could be found", id));
     }
   }
 

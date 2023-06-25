@@ -1,7 +1,7 @@
 package com.logistic.transportlogistic.service.impl;
 
 import com.logistic.transportlogistic.domain.Detail;
-import com.logistic.transportlogistic.exception.DataException;
+import com.logistic.transportlogistic.exception.ResourceNotFoundException;
 import com.logistic.transportlogistic.mapper.DetailMapper;
 import com.logistic.transportlogistic.model.CreateDetail;
 import com.logistic.transportlogistic.model.ReadDetail;
@@ -40,7 +40,7 @@ public class DetailServiceImpl implements DetailService {
       repository.deleteById(id);
       return message;
     } else {
-      throw new DataException(String.format("Detail with id = '%s' could be found", id));
+      throw new ResourceNotFoundException(String.format("Detail with id = '%s' could be found", id));
     }
   }
 
@@ -53,7 +53,7 @@ public class DetailServiceImpl implements DetailService {
       detail.setId(id);
       return mapper.readDetailFromDetail(repository.save(detail));
     } else {
-      throw new DataException(String.format("Detail with id = '%s' could be found", id));
+      throw new ResourceNotFoundException(String.format("Detail with id = '%s' could be found", id));
     }
   }
 
