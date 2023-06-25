@@ -1,4 +1,4 @@
-package unit.transportlogistic.mapper;
+package com.logistic.transportlogistic.mapper;
 
 
 import static com.logistic.transportlogistic.mapper.TransportMapper.TRANSPORT_MAPPER;
@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import com.logistic.transportlogistic.model.CreateTransport;
 import com.logistic.transportlogistic.model.ReadTransport;
 import com.logistic.transportlogistic.domain.Transport;
-import unit.transportlogistic.testobject.TestModel;
+import com.logistic.transportlogistic.testobject.TestModel;
 import org.junit.jupiter.api.Test;
 
 class TransportMapperTest {

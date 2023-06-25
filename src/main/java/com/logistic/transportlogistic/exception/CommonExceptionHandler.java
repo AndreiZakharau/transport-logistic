@@ -7,6 +7,7 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.ServletException;
+import java.time.format.DateTimeParseException;
 import java.util.stream.Collectors;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -84,7 +85,6 @@ public class CommonExceptionHandler {
   }
 
 
-
   @ExceptionHandler(BadRequest.class)
   @ResponseStatus(BAD_REQUEST)
   public ExceptionInformation handleBadRequestException(BadRequest exception) {
@@ -114,7 +114,15 @@ public class CommonExceptionHandler {
         getMessageWithoutBrackets(exception.getLocalizedMessage()));
   }
 
+  @ExceptionHandler(DateTimeParseException.class)
+  @ResponseStatus(BAD_REQUEST)
+  public ExceptionInformation handleDateTimeParseException(
+      DateTimeParseException exception) {
+    return  new ExceptionInformation(DateTimeParseException.class.getSimpleName(),
+        BAD_REQUEST,
+        "Invalid date format. Date format mast be yyyy-MM-dd (1980-03-27)");
 
+  }
 
   @ExceptionHandler(DataIntegrityViolationException.class)
   @ResponseStatus(BAD_REQUEST)
@@ -145,17 +153,5 @@ public class CommonExceptionHandler {
     return StringUtils.removeStart(StringUtils.removeEnd(message, "]"), "[");
   }
 
-  private String getHeaderIsMissingRequiredFieldsMessage(String exceptionMessage, String fields) {
-    String headers = exceptionMessage
-        .substring(exceptionMessage.indexOf("The list of headers encountered"))
-        .substring(exceptionMessage.indexOf("["))
-        .replace("[", "\"")
-        .replace("]", "\"")
-        .replaceAll(",", "\", \"");
 
-    return String.format(
-        "Header is missing required fields: %s. The list of headers encountered is %s",
-        fields,
-        headers);
-  }
 }

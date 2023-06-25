@@ -1,17 +1,17 @@
-package unit.transportlogistic.testobject;
+package com.logistic.transportlogistic.testobject;
 
-import com.logistic.transportlogistic.model.CreateTransport;
-import com.logistic.transportlogistic.model.ReadCar;
-import com.logistic.transportlogistic.model.CreateCar;
-import com.logistic.transportlogistic.model.CreateComponent;
-import com.logistic.transportlogistic.model.CreateDetail;
-import com.logistic.transportlogistic.model.ReadComponent;
-import com.logistic.transportlogistic.model.ReadDetail;
-import com.logistic.transportlogistic.model.ReadTransport;
 import com.logistic.transportlogistic.domain.Car;
 import com.logistic.transportlogistic.domain.Component;
 import com.logistic.transportlogistic.domain.Detail;
 import com.logistic.transportlogistic.domain.Transport;
+import com.logistic.transportlogistic.model.CreateCar;
+import com.logistic.transportlogistic.model.CreateComponent;
+import com.logistic.transportlogistic.model.CreateDetail;
+import com.logistic.transportlogistic.model.CreateTransport;
+import com.logistic.transportlogistic.model.ReadCar;
+import com.logistic.transportlogistic.model.ReadComponent;
+import com.logistic.transportlogistic.model.ReadDetail;
+import com.logistic.transportlogistic.model.ReadTransport;
 import java.time.LocalDate;
 import java.util.List;
 import lombok.experimental.UtilityClass;
@@ -42,14 +42,14 @@ public class TestModel {
         .id(12L)
         .type("engine")
         .details(getListDetail()).build();
-      }
+  }
 
   public static List<Detail> getListDetail() {
     Detail detail1 = Detail.builder().id(33L).number("467567GHJ56657HGg8").build();
     Detail detail2 = Detail.builder().id(43L).number("ew427GHJ56657HGg8").build();
     Detail detail3 = Detail.builder().id(37L).number("467567GHJ5hHJG676gj$%").build();
 
-    return List.of(detail1,detail2,detail3);
+    return List.of(detail1, detail2, detail3);
   }
 
   public static Transport getTransport() {
@@ -108,7 +108,7 @@ public class TestModel {
   }
 
   public static CreateTransport getCreateTransport() {
-    return  CreateTransport.builder()
+    return CreateTransport.builder()
         .vin("VYT6785HG787")
         .registryNumber("AT567799")
         .build();

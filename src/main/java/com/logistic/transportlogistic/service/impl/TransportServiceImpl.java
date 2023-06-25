@@ -9,6 +9,7 @@ import com.logistic.transportlogistic.model.ReadTransport;
 import com.logistic.transportlogistic.repositorie.TransportRepository;
 import com.logistic.transportlogistic.service.TransportService;
 import com.logistic.transportlogistic.service.util.ColumnValidator;
+import jakarta.persistence.EntityNotFoundException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -62,7 +63,7 @@ public class TransportServiceImpl implements TransportService {
   @Override
   public ReadTransport get(long id) {
 
-    Transport transport = repository.findById(id).orElseThrow(ResourceNotFoundException::new);
+    Transport transport = repository.findById(id).orElseThrow(EntityNotFoundException::new);
     return mapper.readTransportFromTransport(transport);
   }
 
@@ -79,16 +80,17 @@ public class TransportServiceImpl implements TransportService {
   @Override
   public ReadTransport setDriverToTransport(long transportId, long driverId) {
 
-    Transport transport = repository.findById(transportId).orElseThrow(ResourceNotFoundException::new);
+    Transport transport = repository.findById(transportId)
+        .orElseThrow(ResourceNotFoundException::new);
     transport.setDriverId(driverId);
-    return  mapper.readTransportFromTransport(repository.save(transport));
+    return mapper.readTransportFromTransport(repository.save(transport));
   }
 
   @Override
   public Page<ReadTransport> getAllBySort(List<String> sortColumns, List<String> orderTypes,
       int page, int size) {
 
-    Sort sort =getSort(sortColumns, orderTypes);
+    Sort sort = getSort(sortColumns, orderTypes);
     Pageable pageable = PageRequest.of(page, size, sort);
     Page<Transport> transports = repository.findAll(pageable);
     return transports.map(mapper::readTransportFromTransport);

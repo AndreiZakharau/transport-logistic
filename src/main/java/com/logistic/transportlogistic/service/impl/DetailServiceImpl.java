@@ -10,6 +10,7 @@ import com.logistic.transportlogistic.model.ReadDetail;
 import com.logistic.transportlogistic.repositorie.DetailRepository;
 import com.logistic.transportlogistic.service.DetailService;
 import com.logistic.transportlogistic.service.util.ColumnValidator;
+import jakarta.persistence.EntityNotFoundException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -35,7 +36,7 @@ public class DetailServiceImpl implements DetailService {
   public ReadDetail add(CreateDetail createDetail) {
 
     Detail detail = mapper.detailFromCreateDetail(createDetail);
-    return mapper.readDetailFromDetail(detail);
+    return mapper.readDetailFromDetail(repository.save(detail));
   }
 
   @Transactional
@@ -60,7 +61,7 @@ public class DetailServiceImpl implements DetailService {
   @Override
   public ReadDetail get(long id) {
 
-    Detail detail = repository.findById(id).orElseThrow(ResourceNotFoundException::new);
+    Detail detail = repository.findById(id).orElseThrow(EntityNotFoundException::new);
     return mapper.readDetailFromDetail(detail);
   }
 

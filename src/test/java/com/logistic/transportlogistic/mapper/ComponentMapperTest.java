@@ -1,4 +1,4 @@
-package unit.transportlogistic.mapper;
+package com.logistic.transportlogistic.mapper;
 
 
 import static com.logistic.transportlogistic.mapper.ComponentMapper.COMPONENT_MAPPER;
@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import com.logistic.transportlogistic.model.CreateComponent;
 import com.logistic.transportlogistic.model.ReadComponent;
 import com.logistic.transportlogistic.domain.Component;
-import unit.transportlogistic.testobject.TestModel;
+import com.logistic.transportlogistic.testobject.TestModel;
 import org.junit.jupiter.api.Test;
 
 class ComponentMapperTest {

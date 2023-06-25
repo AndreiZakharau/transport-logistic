@@ -10,6 +10,7 @@ import com.logistic.transportlogistic.model.ReadComponent;
 import com.logistic.transportlogistic.repositorie.ComponentRepository;
 import com.logistic.transportlogistic.service.ComponentService;
 import com.logistic.transportlogistic.service.util.ColumnValidator;
+import jakarta.persistence.EntityNotFoundException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -62,7 +63,7 @@ public class ComponentServiceImpl implements ComponentService {
   @Override
   public ReadComponent get(long id) {
 
-    Component component = repository.findById(id).orElseThrow(ResourceNotFoundException::new);
+    Component component = repository.findById(id).orElseThrow(EntityNotFoundException::new);
     return mapper.readComponentFromComponent(component);
   }
 
