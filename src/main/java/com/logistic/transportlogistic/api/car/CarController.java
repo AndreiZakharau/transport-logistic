@@ -2,7 +2,6 @@ package com.logistic.transportlogistic.api.car;
 
 import com.logistic.transportlogistic.model.CreateCar;
 import com.logistic.transportlogistic.model.ReadCar;
-import com.logistic.transportlogistic.model.ReadTransport;
 import com.logistic.transportlogistic.service.impl.CarServiceImpl;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -38,13 +37,13 @@ public class CarController implements CarApi {
 
   @Override
   public Page<ReadCar> findAllCar(Integer page, Integer size) {
-    return carService.getAll(page,size);
+    return carService.getAll(page, size);
   }
 
   @Override
   public Page<ReadCar> sortTransport(List<String> sortColumns, List<String> orderTypes,
       int page, int size) {
-    return carService.getAllBySort(sortColumns,orderTypes,page,size);
+    return carService.getAllBySort(sortColumns, orderTypes, page, size);
   }
 
 }

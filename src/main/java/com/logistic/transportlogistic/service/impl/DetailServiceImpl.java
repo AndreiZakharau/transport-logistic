@@ -1,7 +1,6 @@
 package com.logistic.transportlogistic.service.impl;
 
 import com.logistic.transportlogistic.api.pagination.SortParamsContext;
-import com.logistic.transportlogistic.domain.Car;
 import com.logistic.transportlogistic.domain.Detail;
 import com.logistic.transportlogistic.exception.ResourceNotFoundException;
 import com.logistic.transportlogistic.mapper.DetailMapper;
@@ -9,7 +8,7 @@ import com.logistic.transportlogistic.model.CreateDetail;
 import com.logistic.transportlogistic.model.ReadDetail;
 import com.logistic.transportlogistic.repositorie.DetailRepository;
 import com.logistic.transportlogistic.service.DetailService;
-import com.logistic.transportlogistic.service.util.ColumnValidator;
+import com.logistic.transportlogistic.util.ColumnValidator;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.Arrays;
 import java.util.List;
@@ -31,6 +30,7 @@ public class DetailServiceImpl implements DetailService {
   private final DetailRepository repository;
 
   private final ColumnValidator validator;
+
   @Transactional
   @Override
   public ReadDetail add(CreateDetail createDetail) {
@@ -85,10 +85,11 @@ public class DetailServiceImpl implements DetailService {
     }
   }
 
+  @Transactional
   @Override
   public Page<ReadDetail> getAllBySort(List<String> sortColumns, List<String> orderTypes, int page,
       int size) {
-    Sort sort =getSort(sortColumns, orderTypes);
+    Sort sort = getSort(sortColumns, orderTypes);
     Pageable pageable = PageRequest.of(page, size, sort);
     Page<Detail> details = repository.findAll(pageable);
     return details.map(mapper::readDetailFromDetail);

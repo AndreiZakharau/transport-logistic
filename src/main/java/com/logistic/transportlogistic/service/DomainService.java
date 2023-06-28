@@ -1,6 +1,5 @@
 package com.logistic.transportlogistic.service;
 
-import com.logistic.transportlogistic.model.ReadTransport;
 import java.util.List;
 import org.springframework.data.domain.Page;
 

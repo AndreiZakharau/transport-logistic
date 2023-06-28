@@ -1,7 +1,6 @@
 package com.logistic.transportlogistic.service.impl;
 
 import com.logistic.transportlogistic.api.pagination.SortParamsContext;
-import com.logistic.transportlogistic.domain.Car;
 import com.logistic.transportlogistic.domain.Component;
 import com.logistic.transportlogistic.exception.ResourceNotFoundException;
 import com.logistic.transportlogistic.mapper.ComponentMapper;
@@ -9,7 +8,7 @@ import com.logistic.transportlogistic.model.CreateComponent;
 import com.logistic.transportlogistic.model.ReadComponent;
 import com.logistic.transportlogistic.repositorie.ComponentRepository;
 import com.logistic.transportlogistic.service.ComponentService;
-import com.logistic.transportlogistic.service.util.ColumnValidator;
+import com.logistic.transportlogistic.util.ColumnValidator;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.Arrays;
 import java.util.List;
@@ -76,6 +75,7 @@ public class ComponentServiceImpl implements ComponentService {
     return components.map(mapper::readComponentFromComponent);
   }
 
+
   @Override
   public boolean isPresent(long id) {
 
@@ -87,6 +87,7 @@ public class ComponentServiceImpl implements ComponentService {
     }
   }
 
+  @Transactional
   @Override
   public Page<ReadComponent> getAllBySort(List<String> sortColumns, List<String> orderTypes,
       int page, int size) {

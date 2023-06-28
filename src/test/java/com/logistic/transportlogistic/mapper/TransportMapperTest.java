@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import com.logistic.transportlogistic.domain.Transport;
 import com.logistic.transportlogistic.model.CreateTransport;
 import com.logistic.transportlogistic.model.ReadTransport;
-import com.logistic.transportlogistic.domain.Transport;
 import com.logistic.transportlogistic.testobject.TestModel;
 import org.junit.jupiter.api.Test;
 

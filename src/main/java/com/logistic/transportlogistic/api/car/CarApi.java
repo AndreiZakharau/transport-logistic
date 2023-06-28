@@ -2,7 +2,6 @@ package com.logistic.transportlogistic.api.car;
 
 import com.logistic.transportlogistic.model.CreateCar;
 import com.logistic.transportlogistic.model.ReadCar;
-import com.logistic.transportlogistic.model.ReadTransport;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.data.domain.Page;

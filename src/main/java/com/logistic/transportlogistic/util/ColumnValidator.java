@@ -1,4 +1,4 @@
-package com.logistic.transportlogistic.service.util;
+package com.logistic.transportlogistic.util;
 
 import com.logistic.transportlogistic.api.pagination.SortParamsContext;
 import com.logistic.transportlogistic.domain.Car;

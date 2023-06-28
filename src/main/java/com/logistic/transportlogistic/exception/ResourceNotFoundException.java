@@ -1,18 +1,16 @@
 package com.logistic.transportlogistic.exception;
 
-public class ResourceNotFoundException extends RuntimeException{
+public class ResourceNotFoundException extends RuntimeException {
 
   /**
-   * Constructs an <code>ResourceNotFoundException</code> with no
-   * detail message.
+   * Constructs an <code>ResourceNotFoundException</code> with no detail message.
    */
   public ResourceNotFoundException() {
     super();
   }
 
   /**
-   * Constructs an <code>IllegalArgumentException</code> with the
-   * specified detail message.
+   * Constructs an <code>IllegalArgumentException</code> with the specified detail message.
    *
    * @param message the detail message.
    */
@@ -24,7 +22,7 @@ public class ResourceNotFoundException extends RuntimeException{
    * Instantiates a new resource not found exception.
    *
    * @param message the exception message
-   * @param cause the exception cause
+   * @param cause   the exception cause
    */
   public ResourceNotFoundException(String message, Throwable cause) {
     super(message, cause);

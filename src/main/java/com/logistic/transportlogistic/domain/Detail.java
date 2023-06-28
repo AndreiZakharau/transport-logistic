@@ -38,7 +38,7 @@ public class Detail {
   @JoinColumn(name = "component_id")
   private Component typeDetail;
 
-  @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinColumn(name = "transport_id")
   private Transport transportId;
 }

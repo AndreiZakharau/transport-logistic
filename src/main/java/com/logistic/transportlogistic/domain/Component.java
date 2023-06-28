@@ -38,7 +38,7 @@ public class Component {
 
   @Builder.Default
   @ToString.Exclude
-  @OneToMany(mappedBy = "typeDetail",fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "typeDetail", fetch = FetchType.LAZY)
   private List<Detail> details = new ArrayList<>();
 
 }

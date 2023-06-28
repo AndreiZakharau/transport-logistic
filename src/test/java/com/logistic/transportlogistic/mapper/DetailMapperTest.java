@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import com.logistic.transportlogistic.domain.Detail;
 import com.logistic.transportlogistic.model.CreateDetail;
 import com.logistic.transportlogistic.model.ReadDetail;
-import com.logistic.transportlogistic.domain.Detail;
 import com.logistic.transportlogistic.testobject.TestModel;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +32,7 @@ class DetailMapperTest {
 
     Detail detail = TestModel.getDetail();
 
-    CreateDetail createDetail =DETAIL_MAPPER.createDetailFromDetail(detail);
+    CreateDetail createDetail = DETAIL_MAPPER.createDetailFromDetail(detail);
 
     assertNotNull(createDetail);
     assertEquals(createDetail.getNumber(), detail.getNumber());

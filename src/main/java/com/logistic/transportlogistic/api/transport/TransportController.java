@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class TransportController implements TransportApi{
+public class TransportController implements TransportApi {
 
   private final TransportService service;
 
@@ -37,7 +37,7 @@ public class TransportController implements TransportApi{
 
   @Override
   public Page<ReadTransport> findAllTransport(Integer page, Integer size) {
-    return service.getAll(page,size);
+    return service.getAll(page, size);
   }
 
   @Override
@@ -48,6 +48,6 @@ public class TransportController implements TransportApi{
   @Override
   public Page<ReadTransport> sortTransport(List<String> sortColumns, List<String> orderTypes,
       int page, int size) {
-    return service.getAllBySort(sortColumns,orderTypes,page,size);
+    return service.getAllBySort(sortColumns, orderTypes, page, size);
   }
 }

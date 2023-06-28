@@ -8,7 +8,7 @@ import com.logistic.transportlogistic.model.CreateTransport;
 import com.logistic.transportlogistic.model.ReadTransport;
 import com.logistic.transportlogistic.repositorie.TransportRepository;
 import com.logistic.transportlogistic.service.TransportService;
-import com.logistic.transportlogistic.service.util.ColumnValidator;
+import com.logistic.transportlogistic.util.ColumnValidator;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.Arrays;
 import java.util.List;
@@ -86,6 +86,7 @@ public class TransportServiceImpl implements TransportService {
     return mapper.readTransportFromTransport(repository.save(transport));
   }
 
+  @Transactional
   @Override
   public Page<ReadTransport> getAllBySort(List<String> sortColumns, List<String> orderTypes,
       int page, int size) {

@@ -36,12 +36,12 @@ public class DetailController implements DetailApi {
 
   @Override
   public Page<ReadDetail> findAllDetail(Integer page, Integer size) {
-    return service.getAll(page,size);
+    return service.getAll(page, size);
   }
 
   @Override
   public Page<ReadDetail> sortTransport(List<String> sortColumns, List<String> orderTypes, int page,
       int size) {
-    return service.getAllBySort(sortColumns,orderTypes,page,size);
+    return service.getAllBySort(sortColumns, orderTypes, page, size);
   }
 }

@@ -8,7 +8,7 @@ import com.logistic.transportlogistic.model.CreateCar;
 import com.logistic.transportlogistic.model.ReadCar;
 import com.logistic.transportlogistic.repositorie.CarRepository;
 import com.logistic.transportlogistic.service.CarService;
-import com.logistic.transportlogistic.service.util.ColumnValidator;
+import com.logistic.transportlogistic.util.ColumnValidator;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.Arrays;
 import java.util.List;
@@ -86,6 +86,7 @@ public class CarServiceImpl implements CarService {
     }
   }
 
+  @Transactional
   @Override
   public Page<ReadCar> getAllBySort(List<String> sortColumns, List<String> orderTypes, int page,
       int size) {
