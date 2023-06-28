@@ -52,6 +52,14 @@ public class TestModel {
     return List.of(detail1, detail2, detail3);
   }
 
+  public static List<ReadDetail> getListReadDetail() {
+    ReadDetail detail1 = ReadDetail.builder().id(33L).number("467567GHJ56657HGg8").build();
+    ReadDetail detail2 = ReadDetail.builder().id(43L).number("ew427GHJ56657HGg8").build();
+    ReadDetail detail3 = ReadDetail.builder().id(37L).number("467567GHJ5hHJG676gj$%").build();
+
+    return List.of(detail1, detail2, detail3);
+  }
+
   public static Transport getTransport() {
     return Transport.builder()
         .id(13L)
@@ -88,12 +96,12 @@ public class TestModel {
     return ReadComponent.builder()
         .id(12L)
         .type("engine")
-        .details(getListDetail()).build();
+        .details(getListReadDetail()).build();
   }
 
   public static CreateDetail getCreateDetail() {
     return CreateDetail.builder()
-        .typeDetail(Component.builder().id(12L).build())
+        .typeDetail(ReadComponent.builder().id(12L).type("engine").details(getListReadDetail()).build())
         .number("456UF677HG")
         .build();
   }
@@ -103,7 +111,7 @@ public class TestModel {
         .id(45L)
         .typeDetail(Component.builder().id(12L).build())
         .number("456UF677HG")
-        .transportId(Transport.builder().id(13L).build())
+        .transportId(ReadTransport.builder().id(13L).build())
         .build();
   }
 
@@ -119,8 +127,8 @@ public class TestModel {
         .id(13L)
         .vin("VYT6785HG787")
         .registryNumber("AT567799")
-        .details(getListDetail())
-        .car(getCar())
+        .details(getListReadDetail())
+        .car(getReadCar())
         .driverId(66L).build();
   }
 }

@@ -45,7 +45,7 @@ class ComponentMapperTest {
 
     assertNotNull(readComponent);
     assertEquals(readComponent.getType(), component.getType());
-    assertEquals(readComponent.getDetails(), component.getDetails());
+    assertEquals(readComponent.getDetails().size(), component.getDetails().size());
     assertEquals(readComponent.getId(), component.getId());
 
   }
@@ -59,7 +59,7 @@ class ComponentMapperTest {
 
     assertNotNull(component);
     assertEquals(component.getType(), readComponent.getType());
-    assertEquals(component.getDetails(), readComponent.getDetails());
+    assertEquals(component.getDetails().size(), readComponent.getDetails().size());
     assertEquals(component.getId(), readComponent.getId());
   }
 }

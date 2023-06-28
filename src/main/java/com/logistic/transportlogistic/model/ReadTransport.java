@@ -1,7 +1,5 @@
 package com.logistic.transportlogistic.model;
 
-import com.logistic.transportlogistic.domain.Car;
-import com.logistic.transportlogistic.domain.Detail;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -21,8 +19,8 @@ public class ReadTransport {
   private Long id;
   private String vin;
   private String registryNumber;
-  private Car car;
-  private List<Detail> details;
+  private ReadCar car;
+  private List<ReadDetail> details;
   private Long driverId;
 
 }

@@ -21,5 +21,5 @@ public class ReadComponent {
   @NotNull
   private String type;
   @NotNull
-  private List<Detail> details;
+  private List<ReadDetail> details;
 }

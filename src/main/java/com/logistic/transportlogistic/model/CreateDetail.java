@@ -20,6 +20,6 @@ public class CreateDetail {
   @Size(min = 1, max = 50, message = "Value 'number' size must be between 1 and 50")
   private String number;
   @NotNull(message = "Value 'typeDetail' cannot be null")
-  private Component typeDetail;
+  private ReadComponent typeDetail;
 
 }

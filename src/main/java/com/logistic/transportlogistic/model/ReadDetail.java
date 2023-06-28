@@ -23,6 +23,6 @@ public class ReadDetail {
   @NotNull
   private Component typeDetail;
   @NotNull
-  private Transport transportId;
+  private ReadTransport transportId;
 
 }

@@ -22,7 +22,7 @@ class DetailMapperTest {
 
     assertNotNull(detail);
     assertEquals(detail.getNumber(), createDetail.getNumber());
-    assertEquals(detail.getTypeDetail(), createDetail.getTypeDetail());
+    assertEquals(detail.getTypeDetail().getId(), createDetail.getTypeDetail().getId());
     assertNull(detail.getId());
     assertNull(detail.getTransportId());
   }
@@ -36,7 +36,7 @@ class DetailMapperTest {
 
     assertNotNull(createDetail);
     assertEquals(createDetail.getNumber(), detail.getNumber());
-    assertEquals(createDetail.getTypeDetail(), detail.getTypeDetail());
+    assertEquals(createDetail.getTypeDetail().getId(), detail.getTypeDetail().getId());
   }
 
   @Test
@@ -50,7 +50,7 @@ class DetailMapperTest {
     assertEquals(detail.getNumber(), readDetail.getNumber());
     assertEquals(detail.getTypeDetail(), readDetail.getTypeDetail());
     assertEquals(detail.getId(), readDetail.getId());
-    assertEquals(detail.getTransportId(), readDetail.getTransportId());
+    assertEquals(detail.getTransportId().getId(), readDetail.getTransportId().getId());
   }
 
   @Test
@@ -64,6 +64,6 @@ class DetailMapperTest {
     assertEquals(readDetail.getNumber(), detail.getNumber());
     assertEquals(readDetail.getTypeDetail(), detail.getTypeDetail());
     assertEquals(readDetail.getId(), detail.getId());
-    assertEquals(readDetail.getTransportId(), detail.getTransportId());
+    assertEquals(readDetail.getTransportId().getId(), detail.getTransportId().getId());
   }
 }

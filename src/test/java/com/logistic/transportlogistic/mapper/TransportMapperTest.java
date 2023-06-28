@@ -51,8 +51,8 @@ class TransportMapperTest {
     assertEquals(transport.getVin(), readTransport.getVin());
     assertEquals(transport.getRegistryNumber(), readTransport.getRegistryNumber());
     assertEquals(transport.getId(), readTransport.getId());
-    assertEquals(transport.getCar(), readTransport.getCar());
-    assertEquals(transport.getDetails(), readTransport.getDetails());
+    assertEquals(transport.getCar().getId(), readTransport.getCar().getId());
+    assertEquals(transport.getDetails().size(), readTransport.getDetails().size());
 
   }
 
@@ -67,7 +67,7 @@ class TransportMapperTest {
     assertEquals(transport.getVin(), readTransport.getVin());
     assertEquals(transport.getRegistryNumber(), readTransport.getRegistryNumber());
     assertEquals(transport.getId(), readTransport.getId());
-    assertEquals(transport.getCar(), readTransport.getCar());
-    assertEquals(transport.getDetails(), readTransport.getDetails());
+    assertEquals(transport.getCar().getId(), readTransport.getCar().getId());
+    assertEquals(transport.getDetails().size(), readTransport.getDetails().size());
   }
 }
