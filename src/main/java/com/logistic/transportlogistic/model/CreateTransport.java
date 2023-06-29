@@ -1,5 +1,6 @@
 package com.logistic.transportlogistic.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "Transport creation model")
 public class CreateTransport {
 
   @NotNull(message = "Value 'vin' cannot be null")

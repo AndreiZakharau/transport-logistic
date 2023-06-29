@@ -25,7 +25,7 @@ public class SwaggerConfig {
         .info(
             new Info()
                 .title("Transport")
-                .version("1.0")
+                .version("1.0-SNAPSHOT")
                 .contact(
                     new Contact()
                         .email("a.zakharaudev@gmail.com")

@@ -1,6 +1,7 @@
 package com.logistic.transportlogistic.model;
 
 import com.logistic.transportlogistic.domain.Component;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "Detail creation model")
 public class CreateDetail {
 
   @NotNull(message = "Value 'number' cannot be null")

@@ -1,6 +1,7 @@
 package com.logistic.transportlogistic.model;
 
 import com.logistic.transportlogistic.domain.Detail;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -14,12 +15,11 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "Component display model")
 public class ReadComponent {
 
-  @NotNull
+  @Schema(accessMode = Schema.AccessMode.READ_ONLY)
   private Long id;
-  @NotNull
   private String type;
-  @NotNull
   private List<ReadDetail> details;
 }

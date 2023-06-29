@@ -1,5 +1,6 @@
 package com.logistic.transportlogistic.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -13,9 +14,10 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "Transport display model")
 public class ReadTransport {
 
-  @NotNull
+  @Schema(accessMode = Schema.AccessMode.READ_ONLY)
   private Long id;
   private String vin;
   private String registryNumber;

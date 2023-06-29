@@ -1,5 +1,6 @@
 package com.logistic.transportlogistic.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -11,6 +12,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @AllArgsConstructor
+@Schema(description = "Component creation model")
 public class CreateComponent {
 
   @NotNull(message = "Value 'type' cannot be null")

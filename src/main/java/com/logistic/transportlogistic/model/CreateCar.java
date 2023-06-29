@@ -1,5 +1,6 @@
 package com.logistic.transportlogistic.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "Car creation model")
 public class CreateCar {
 
   @NotNull(message = "Value 'fabricator' cannot be null")
