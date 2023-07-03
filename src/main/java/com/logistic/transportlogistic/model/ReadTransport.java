@@ -1,7 +1,6 @@
 package com.logistic.transportlogistic.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,7 +21,7 @@ public class ReadTransport {
   private String vin;
   private String registryNumber;
   private ReadCar car;
-  private List<ReadDetail> details;
+  private List<DetailModel> details;
   private Long driverId;
 
 }

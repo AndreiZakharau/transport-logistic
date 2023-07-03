@@ -1,8 +1,6 @@
 package com.logistic.transportlogistic.model;
 
-import com.logistic.transportlogistic.domain.Detail;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,5 +19,5 @@ public class ReadComponent {
   @Schema(accessMode = Schema.AccessMode.READ_ONLY)
   private Long id;
   private String type;
-  private List<ReadDetail> details;
+  private List<DetailModel> details;
 }

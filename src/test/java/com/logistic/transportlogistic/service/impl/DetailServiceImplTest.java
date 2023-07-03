@@ -112,7 +112,7 @@ class DetailServiceImplTest {
     assertEquals(actual.getId(), readDetail.getId());
     assertEquals(actual.getNumber(), readDetail.getNumber());
     assertEquals(actual.getTypeDetail(), readDetail.getTypeDetail());
-    assertEquals(actual.getTransportId(), readDetail.getTransportId());
+    assertEquals(actual.getTransport(), readDetail.getTransport());
 
     verify(repository, times(1)).findById(id);
     verify(repository, times(1)).save(detail);
@@ -131,7 +131,7 @@ class DetailServiceImplTest {
     assertEquals(actual.getId(), readDetail.getId());
     assertEquals(actual.getNumber(), readDetail.getNumber());
     assertEquals(actual.getTypeDetail(), readDetail.getTypeDetail());
-    assertEquals(actual.getTransportId(), readDetail.getTransportId());
+    assertEquals(actual.getTransport(), readDetail.getTransport());
 
     verify(repository, times(1)).findById(id);
   }

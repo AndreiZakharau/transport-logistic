@@ -1,6 +1,5 @@
 package com.logistic.transportlogistic.domain;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -22,7 +21,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode
-@ToString
+@ToString(exclude = {"typeDetail"})
 @Entity
 public class Detail {
 
@@ -38,7 +37,7 @@ public class Detail {
   @JoinColumn(name = "component_id")
   private Component typeDetail;
 
-  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "transport_id")
-  private Transport transportId;
+  private Transport transport;
 }

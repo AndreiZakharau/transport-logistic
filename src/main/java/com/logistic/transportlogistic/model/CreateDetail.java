@@ -21,7 +21,10 @@ public class CreateDetail {
   @NotNull(message = "Value 'number' cannot be null")
   @Size(min = 1, max = 50, message = "Value 'number' size must be between 1 and 50")
   private String number;
+
   @NotNull(message = "Value 'typeDetail' cannot be null")
   private ReadComponent typeDetail;
+
+  private ReadTransport transport;
 
 }
